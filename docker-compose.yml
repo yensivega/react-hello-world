@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  reactcalc:
+    image: rogercastaneda/reactjs-book
+    container_name: reactcalc
+    volumes:
+       #host:server
+      - ./web-site/:/web-site/
+      - /web-site/node_modules/
+    working_dir: /web-site/
+    command:
+      sh -c "yarn && static -a 0.0.0.0"
+#      sh -c "yarn"
+    ports: 
+      - "8088:8080"
+    restart: always
+    
